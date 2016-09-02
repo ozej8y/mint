@@ -1038,6 +1038,9 @@ public class CurationManager extends GenericTransactionManager {
             return;
         }
 
+        //JCU
+        boolean saveData = false;
+
         JSONArray relations = data.writeArray("relationships");
         for (Object relation : relations) {
             JsonSimple json = new JsonSimple((JsonObject) relation);
@@ -1094,6 +1097,7 @@ public class CurationManager extends GenericTransactionManager {
             }
         }
 
+        //JCU
         if  (saveData){
         	//updating the relations with publishMsgSent
             saveObjectData(data, oid);
